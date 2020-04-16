@@ -72,3 +72,33 @@ void searchGram(Product *p, int count){
 	if(scount==0)printf("검색 결과 없음\n");
 	printf("\n");
 }
+
+void saveData(Product *p, int count){
+	FILE *fp;
+
+	fp = fopen("Productlist.txt","wt");
+	for(int i=0;i<count;i++){
+		if(p[i].price != -1) fprintf(fp,"%s %d %d %d %d",p[i].name,p[i].star,p[i].price,p[i].stdprice,p[i].gram);
+	}
+	fclose(fp);
+	printf("파일 저장 완료\n");
+}
+
+int loadData(Product *p){
+	
+	int count=0;
+ 	FILE *fp;
+	fp = fopen("Productlist.txt","rt");
+	if(fp==NULL){
+		printf("파일 없음\n");
+		return 0;
+	}
+	for(;;count++){
+		fscanf(fp,"%s %d %d %d %d",p[count].name,&p[count].star,&p[count].price,&p[count].stdprice,&p[count].gram);
+		if(feof(fp))break;
+	}
+	fclose(fp);
+	printf("로딩 성공\n");
+	return count;
+
+}
