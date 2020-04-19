@@ -17,10 +17,10 @@ int createProduct(Product *p){
 }
 
 int readProduct(Product p){
-    printf("제품명:%s 중량:%d g\n",p.name,p.gram);
+    printf("제품명: %s 중량: %d g\n",p.name,p.gram);
     printf("가격 : %d 원\n",p.price);
-    printf("10g당 %d원\n",p.stdprice);
-    printf("별점개수 : %d\n",p.star);
+    printf("10g당 %d 원\n",p.stdprice);
+    printf("별점개수 : %d 개\n",p.star);
 
     return 1;
 }
