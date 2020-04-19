@@ -24,7 +24,9 @@ void searchName(Product *p, int count){
 	int scount = 0;
 	char search[20];
 	printf("찾으시는 제품 이름은?");
-	scanf("%s", search);
+	getchar();
+	fgets(search,50,stdin);	
+	//scanf("%s", search);
 	
 	printf("=======================\n");	
 	for (int i=0;i<count;i++){
@@ -85,7 +87,6 @@ void saveData(Product *p, int count){
 }
 
 int loadData(Product *p){
-	
 	int count=0;
  	FILE *fp;
 	fp = fopen("Productlist.txt","rt");
@@ -95,7 +96,8 @@ int loadData(Product *p){
 	}
 	
 	for(; ;count++){
-		fscanf(fp,"%s %d %d %d %d",p[count].name,&p[count].gram,&p[count].price,&p[count].stdprice,&p[count].star);
+		fgets(p[count].name,100,fp);
+		fscanf(fp,"%d %d %d %d",&p[count].gram,&p[count].price,&p[count].stdprice,&p[count].star);
 		if(feof(fp))break;
 		}
 	

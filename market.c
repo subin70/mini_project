@@ -49,11 +49,11 @@ int main(){
 	    printf("1.이름 검색\n2.별개수 검색\n3.중량검색\n");
 	    scanf("%d",&num);
 	    if (count==0) printf("데이터 없음\n");
-	    else {	
-		if (num==1) searchName(plist,curcount);
-	    	else if (num==2) searchStar(plist,curcount);
-	    	else if (num==3) searchGram(plist,curcount);
-	    }
+	  	
+	    if (num==1) searchName(plist,curcount);
+	    else if (num==2) searchStar(plist,curcount);
+	    else if (num==3) searchGram(plist,curcount);
+	   
 	}
 
     }
