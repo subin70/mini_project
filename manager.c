@@ -80,7 +80,7 @@ void saveData(Product *p, int count){
 
 	fp = fopen("Productlist.txt","wt");
 	for(int i=0;i<count;i++){
-		if(p[i].price != -1) fprintf(fp,"%s %d %d %d %d\n",p[i].name,p[i].gram,p[i].price,p[i].stdprice,p[i].star);
+		if(p[i].price != -1) fprintf(fp,"%s%d %d %d %d\n",p[i].name,p[i].gram,p[i].price,p[i].stdprice,p[i].star);
 	}
 	fclose(fp);
 	printf("파일 저장 완료\n");
